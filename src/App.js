@@ -27,13 +27,20 @@ function App() {
 
     const changeTaskStatus = (taskId, direction) => {
         const newTasks = tasks.map(el => {
-            if(el.id === taskId){
-                if(direction === 'right') el.status = statuses[statuses.indexOf(el.status) + 1]
-                if(direction === 'left') el.status = statuses[statuses.indexOf(el.status) - 1]
+            if (el.id === taskId) {
+                if (direction === 'right') el.status = statuses[statuses.indexOf(el.status) + 1]
+                if (direction === 'left') el.status = statuses[statuses.indexOf(el.status) - 1]
             }
             return el
         })
         setTasks(newTasks)
+    }
+
+    const deleteTask = (taskId) => {
+        const newList = tasks.filter(el => {
+            return el.id !== taskId;
+        })
+        setTasks(newList)
     }
 
     return (
@@ -44,6 +51,7 @@ function App() {
                     column={el}
                     tasks={tasks}
                     changeTaskStatus={changeTaskStatus}
+                    deleteTask={deleteTask}
                 />)}
             </div>
 
