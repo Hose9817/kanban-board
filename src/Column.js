@@ -6,6 +6,7 @@ function Column(props) {
             <h3>{props.column.title}</h3>
             {props.tasks.filter(el => el.status === props.column.status).map((el) => <Task
                 task={el}
+                status={props.column.status}
                 changeTaskStatus={props.changeTaskStatus}
                 deleteTask={props.deleteTask}
             />)}
