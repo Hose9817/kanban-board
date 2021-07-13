@@ -2,6 +2,7 @@ import './App.css';
 import Column from "./Column";
 import 'bootstrap/dist/css/bootstrap.css'
 import {useState} from "react";
+import Controller from "./Controller";
 
 const taskArray = [
     {id: Math.random(), name: 'First task', status: 'todo'},
@@ -43,8 +44,14 @@ function App() {
         setTasks(newList)
     }
 
+    const CreateTask = (newName, newStatus) => {
+        const newTask = [...tasks, {id: Math.random(), name: newName, status: newStatus}]
+        setTasks(newTask);
+    }
+
     return (
         <div className='container'>
+            <Controller CreateTask={CreateTask}/>
 
             <div className="row">
                 {columnArray.map(el => <Column

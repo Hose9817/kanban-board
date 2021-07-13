@@ -1,3 +1,5 @@
+import { ButtonToggle } from "reactstrap";
+
 function Task(props) {
     return (
         <div className='card'>
@@ -12,7 +14,8 @@ function Task(props) {
                 <a href="#" className="btn btn-primary"
                    onClick={() => props.changeTaskStatus(props.task.id, 'right')}>→</a>
                 }
-                <button onClick={() => props.deleteTask(props.task.id)}>Delete</button>
+                <ButtonToggle color="danger" onClick={() => props.deleteTask(props.task.id)}>Delete</ButtonToggle>{' '}
+                {/*<button onClick={() => props.deleteTask(props.task.id)}>Delete</button>*/}
             </div>
         </div>
     )
